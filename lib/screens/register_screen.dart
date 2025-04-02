@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/register_controller.dart';
@@ -18,11 +19,11 @@ class RegisterScreen extends StatelessWidget {
           children: [
             TextField(
               controller: getcontroller.emailController,
-              decoration: InputDecoration(labelText: 'email'),
+              decoration: InputDecoration(labelText: tr('email')),
             ),
             TextField(
               controller: getcontroller.passwordController,
-              decoration: InputDecoration(labelText:'password'),
+              decoration: InputDecoration(labelText: tr('password')),
               obscureText: true,
             ),
             const SizedBox(height: 20),

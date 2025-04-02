@@ -4,5 +4,7 @@
   "login": "Login",
   "register": "Register",
   "home": "Home",
-  "splash": "Splash Screen"
+  "splash": "Splash Screen",
+  "email": "email",
+  "password": "password"
 }

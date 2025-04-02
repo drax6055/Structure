@@ -4,5 +4,7 @@
   "login": "Iniciar sesión",
   "register": "Registrarse",
   "home": "Inicio",
-  "splash": "Pantalla de inicio"
+  "splash": "Pantalla de inicio",
+  "email": "correo electrónico",
+  "password": "contraseña"
 }
