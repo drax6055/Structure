@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_template/routes/app_pages.dart';
-import 'package:local_auth/local_auth.dart';
 import '../services/auth_service.dart';
 import '../services/dio_service.dart';
 import '../models/login_model.dart';
+import '../services/network_const.dart';
 
 class LoginController extends GetxController {
   final emailController = TextEditingController();
@@ -17,7 +17,7 @@ class LoginController extends GetxController {
     };
 
     try {
-      final response = await DioService.post('/login', loginData);
+      final response = await DioService.post(Endpoints.login, loginData);
       final loginModel = LoginModel.fromJson(response.data);
 
       AuthService.login(loginModel.accessToken, loginModel.refreshToken);

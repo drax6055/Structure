@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/services/network_const.dart';
 
 class DioService {
   static final Dio _dio = Dio();
 
-
-
   static void init() {
-    _dio.options.baseUrl = 'https://dummyjson.com/auth';
+    _dio.options.baseUrl = Apis.BaseUrl;
     _dio.options.connectTimeout = const Duration(seconds: 5);
     _dio.options.receiveTimeout = const Duration(seconds: 3);
   }
