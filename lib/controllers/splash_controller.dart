@@ -2,6 +2,7 @@ import 'package:flutter_template/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import '../services/auth_service.dart';
+import '../services/shared_preferences_manager.dart';
 
 class SplashController extends GetxController {
   @override
@@ -12,7 +13,7 @@ class SplashController extends GetxController {
 
   void _navigateToNextScreen() {
     Future.delayed(const Duration(seconds: 2), () async {
-      if (AuthService.isLoggedIn) {
+      if (SharedPreferencesManager.isLoggedIn) {
         Biomatric_login();
       } else {
         Get.offNamed(Routes.selectLanguageScreen);

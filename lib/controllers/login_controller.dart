@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_template/routes/app_pages.dart';
-import '../services/auth_service.dart';
 import '../services/dio_service.dart';
 import '../models/login_model.dart';
 import '../services/network_const.dart';
+import '../services/shared_preferences_manager.dart';
 
 class LoginController extends GetxController {
   final emailController = TextEditingController();
@@ -20,7 +20,7 @@ class LoginController extends GetxController {
       final response = await DioService.post(Endpoints.login, loginData);
       final loginModel = LoginModel.fromJson(response.data);
 
-      AuthService.login(loginModel.accessToken, loginModel.refreshToken);
+      SharedPreferencesManager.login(loginModel.accessToken, loginModel.refreshToken);
       Get.offNamed(Routes.homeScreen);
     } catch (e) {
       Get.snackbar('Error', 'Login failed: $e');

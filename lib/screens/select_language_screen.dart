@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_template/widgets/localized_text.dart';
 import 'package:get/get.dart';
 import '../routes/app_pages.dart';
-import '../services/storage_service.dart';
+import '../services/shared_preferences_manager.dart';
 
 class SelectLanguageScreen extends StatelessWidget {
   const SelectLanguageScreen({super.key});
@@ -23,7 +23,7 @@ class SelectLanguageScreen extends StatelessWidget {
           return ListTile(
             title: Text(locale.languageCode.toUpperCase()),
             onTap: () async {
-              await StorageService.setSelectedLanguage(locale.languageCode);
+              await SharedPreferencesManager.setSelectedLanguage(locale.languageCode);
               context.setLocale(locale); 
               Get.offNamed(Routes.loginScreen);
 }
