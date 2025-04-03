@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/themes/app_colors.dart';
 
 class AppTheme {
   static final lightTheme = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.blue,
+    primarySwatch: primaryColor,
     textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.red,
+        backgroundColor: primaryColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(10),
         ),
         elevation: 2,
       ),
@@ -19,14 +20,14 @@ class AppTheme {
 
   static final darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.blueGrey,
-    textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+    primarySwatch: primaryColor,
+    textTheme: const TextTheme(bodyMedium: TextStyle(color: white)),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.yellow,
+        foregroundColor: white,
+        backgroundColor: primaryColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(10),
         ),
         elevation: 2,
       ),

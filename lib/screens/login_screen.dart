@@ -28,9 +28,13 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            CommonButton("login", () {
-              getcontroller.login();
-            }),
+            CommonButton(
+              "login",
+              () {
+                getcontroller.login();
+              },
+            ),
+            const SizedBox(height: 20),
             CommonButton("register", () {
               getcontroller.navigateToRegister();
             }),

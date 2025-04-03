@@ -25,6 +25,7 @@ class CommonButton extends StatelessWidget {
   final double radius;
   final bool disable;
   final AlignmentGeometry alignment;
+  final Widget? prefix;
   final Widget? postfix;
   final double height;
   final double minWidth;
@@ -46,12 +47,13 @@ class CommonButton extends StatelessWidget {
     this.disableColor,
     this.height = 0,
     this.minWidth = double.infinity,
-    this.radius = 30,
+    this.radius = 12,
     this.textStyle,
     this.disable = false,
     this.borderColor,
     this.borderWidth,
     this.alignment = Alignment.center,
+    this.prefix,
     this.postfix,
     this.isForceClick,
     this.padding,
@@ -66,14 +68,6 @@ class CommonButton extends StatelessWidget {
     final theme = Theme.of(context);
     return ElevatedButton(
       onPressed: onPressed,
-      //   foregroundColor: textColor ?? theme.colorScheme.onPrimary,
-      //   backgroundColor: Colors.transparent,
-      //   padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      //   shape: RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.circular(radius),
-      //   ),
-      //   elevation: elevation ?? 0,
-      // ),
       child: Container(
         decoration: decoration ??
             BoxDecoration(
@@ -81,16 +75,19 @@ class CommonButton extends StatelessWidget {
             ),
         padding: padding ?? EdgeInsets.symmetric(vertical: 12.0.h),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
+            prefix == null
+                ? const SizedBox()
+                : Container(
+                    margin: const EdgeInsets.only(right: 12),
+                    child: prefix,
+                  ),
             Expanded(
                 child: Align(
                     alignment: alignment,
-                    child: text(
+                    child: CustomText(
                       keyText,
-                      style: textStyle ??
-                          theme.textTheme.bodyMedium?.copyWith(
-                            color: textColor ?? theme.colorScheme.onPrimary,
-                          ),
                     ))),
             postfix == null
                 ? const SizedBox()
