@@ -1,7 +1,6 @@
 import 'package:flutter_template/routes/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
-import '../services/auth_service.dart';
 import '../services/shared_preferences_manager.dart';
 
 class SplashController extends GetxController {
@@ -15,13 +14,15 @@ class SplashController extends GetxController {
     Future.delayed(const Duration(seconds: 2), () async {
       if (SharedPreferencesManager.isLoggedIn) {
         Biomatric_login();
+      } else if (SharedPreferencesManager.isLanguageSelected) {
+        Get.offNamed(Routes.loginScreen);
       } else {
         Get.offNamed(Routes.selectLanguageScreen);
       }
     });
   }
 
- void Biomatric_login() async {
+  void Biomatric_login() async {
     final LocalAuthentication auth = LocalAuthentication();
     final bool haveBiomatricAuth = await auth.canCheckBiometrics;
 
@@ -29,7 +30,7 @@ class SplashController extends GetxController {
       final bool authenticated = await auth.authenticate(
           localizedReason: "Login in to the Application",
           options: AuthenticationOptions(biometricOnly: true));
-      
+
       if (authenticated) {
         Get.offNamed(Routes.homeScreen);
       } else {
@@ -39,5 +40,4 @@ class SplashController extends GetxController {
       Get.snackbar('Error', 'Biometric authentication is not available');
     }
   }
-
 }

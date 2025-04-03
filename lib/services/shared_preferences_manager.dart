@@ -39,6 +39,8 @@ class SharedPreferencesManager {
     return _prefs.getString(_languageKey) ?? 'en';
   }
 
+  static bool get isLanguageSelected => _prefs.containsKey(_languageKey);
+
   static Future<void> setSelectedLanguage(String languageCode) async {
     await _prefs.setString(_languageKey, languageCode);
     Get.updateLocale(Locale(languageCode));
