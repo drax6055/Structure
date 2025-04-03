@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../controllers/login_controller.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/localized_text.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -31,11 +32,9 @@ class LoginScreen extends StatelessWidget {
               onPressed: getcontroller.login,
               child: const text('login'),
             ),
-            TextButton(
-              onPressed: getcontroller.navigateToRegister,
-              child: const text('register'),
-            ),
-           
+            CommonButton("register", () {
+              onPressed: getcontroller.navigateToRegister;
+            })
           ],
         ),
       ),
