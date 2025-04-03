@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var getcontroller = Get.put(LoginController());
+    LoginController getcontroller = Get.put(LoginController());
 
     return Scaffold(
       appBar: AppBar(title: const text('login')),
@@ -28,13 +28,12 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: getcontroller.login,
-              child: const text('login'),
-            ),
+            CommonButton("login", () {
+              getcontroller.login();
+            }),
             CommonButton("register", () {
-              onPressed: getcontroller.navigateToRegister;
-            })
+              getcontroller.navigateToRegister();
+            }),
           ],
         ),
       ),

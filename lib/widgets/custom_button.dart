@@ -63,38 +63,35 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return ElevatedButton(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.transparent,
-        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius),
-        ),
-        elevation: elevation ?? 0,
-      ),
+      //   foregroundColor: textColor ?? theme.colorScheme.onPrimary,
+      //   backgroundColor: Colors.transparent,
+      //   padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(radius),
+      //   ),
+      //   elevation: elevation ?? 0,
+      // ),
       child: Container(
         decoration: decoration ??
             BoxDecoration(
-              gradient: (isGradient == true)
-                  ? const LinearGradient(colors: [
-                      Colors.blue,
-                      Colors.lightBlue
-                    ])
-                  : const LinearGradient(colors: [Colors.white, Colors.white]),
               borderRadius: BorderRadius.circular(radius),
             ),
         padding: padding ?? EdgeInsets.symmetric(vertical: 12.0.h),
         child: Row(
           children: [
             Expanded(
-              child: Align(
-                  alignment: alignment,
-                  child: text(
-                    keyText,
-                    style: textStyle ?? TextStyle(color: Colors.white),
-                  ))),
+                child: Align(
+                    alignment: alignment,
+                    child: text(
+                      keyText,
+                      style: textStyle ??
+                          theme.textTheme.bodyMedium?.copyWith(
+                            color: textColor ?? theme.colorScheme.onPrimary,
+                          ),
+                    ))),
             postfix == null
                 ? const SizedBox()
                 : Container(
