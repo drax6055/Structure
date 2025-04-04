@@ -19,7 +19,7 @@ void main() async {
         Locale('en', 'US'),
         Locale('es', 'ES'),
         Locale('hi', 'IN'),
-      ],
+      ],    
       path: 'assets/translations',
       fallbackLocale: Locale('en', 'US'),
       child: const MyApp(),
@@ -52,3 +52,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

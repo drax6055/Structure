@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_template/widgets/localized_text.dart';
-
-class CustomText extends StatelessWidget {
-  final String keyText;
-  final TextStyle? style;
-
-  const CustomText(this.keyText, {this.style, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(tr(keyText), style: style);
-  }
-}
+import '../themes/styles.dart';
 
 class CommonButton extends StatelessWidget {
   final String keyText;
@@ -73,7 +61,7 @@ class CommonButton extends StatelessWidget {
             BoxDecoration(
               borderRadius: BorderRadius.circular(radius),
             ),
-        padding: padding ?? EdgeInsets.symmetric(vertical: 12.0.h),
+        padding: padding ?? EdgeInsets.symmetric(vertical: 8.0.h),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -86,8 +74,9 @@ class CommonButton extends StatelessWidget {
             Expanded(
                 child: Align(
                     alignment: alignment,
-                    child: CustomText(
+                    child: LocalizedText(
                       keyText,
+                      style: textStyle ?? Styles.textFontMedium(size: 14),
                     ))),
             postfix == null
                 ? const SizedBox()

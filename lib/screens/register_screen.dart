@@ -12,7 +12,7 @@ class RegisterScreen extends StatelessWidget {
     var getcontroller = Get.put(RegisterController());
 
     return Scaffold(
-      appBar: AppBar(title: const text('register')),
+      appBar: AppBar(title: const LocalizedText('register')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -29,7 +29,7 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: getcontroller.register,
-              child: const text('register'),
+              child: const LocalizedText('register'),
             ),
           ],
         ),
